@@ -7,7 +7,7 @@
 ```groovy
 buildscript {
     repositories {
-        maven { url 'http://nexus.yamoney.ru/repository/thirdparty/' }
+        maven { url 'http://nexus.yoomoney.ru/repository/thirdparty/' }
         maven { url 'http://nexus.yamoney.ru/repository/central/' }
         maven { url 'http://nexus.yamoney.ru/repository/releases/' }
         maven { url 'http://nexus.yamoney.ru/repository/jcenter.bintray.com/' }

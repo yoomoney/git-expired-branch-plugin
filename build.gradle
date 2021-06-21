@@ -3,12 +3,12 @@ buildscript {
 }
 apply plugin: 'yamoney-gradle-project-plugin'
 
-pluginId = 'yamoney-git-expired-branch-plugin'
+pluginId = 'yoomoney-git-expired-branch-plugin'
 gradlePlugin {
     plugins {
         gitExpiredBranchPlugin {
             id = pluginId
-            implementationClass = "ru.yandex.money.gradle.plugins.library.git.expired.branch.GitExpiredBranchPlugin"
+            implementationClass = "ru.yoomoney.gradle.plugins.library.git.expired.branch.GitExpiredBranchPlugin"
         }
     }
 }

@@ -1,15 +1,15 @@
 ### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
 ### NEXT_VERSION_DESCRIPTION_BEGIN
 ### NEXT_VERSION_DESCRIPTION_END
-## [5.2.2](https://bitbucket.yamoney.ru/projects/BACKEND-GRADLE-PLUGINS/repos/git-expired-branch-plugin/pull-requests/3) (30-11-2020)
+## [5.2.2]() (30-11-2020)
 
 * Обновлена версия kotlin 1.3.71 -> 1.3.50
 
-## [5.2.1](https://bitbucket.yamoney.ru/projects/BACKEND-GRADLE-PLUGINS/repos/git-expired-branch-plugin/pull-requests/2) (23-11-2020)
+## [5.2.1]() (23-11-2020)
 
 * Замена доменов email @yamoney.ru -> @yoomoney.ru
 
-## [5.2.0](https://bitbucket.yamoney.ru/projects/BACKEND-GRADLE-PLUGINS/repos/git-expired-branch-plugin/pull-requests/1) (03-07-2020)
+## [5.2.0]() (03-07-2020)
 
 * Поднята версия gradle: 6.0.1 -> 6.4.1.
 
