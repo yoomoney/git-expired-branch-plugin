@@ -43,7 +43,7 @@ class GitExpiredBranchSpec {
                 }
                 plugins {
                     id 'java'
-                    id 'yamoney-git-expired-branch-plugin'
+                    id 'yoomoney-git-expired-branch-plugin'
                 }
         """
     }

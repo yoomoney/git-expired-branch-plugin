@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MAJOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* **breaking changes** yamoney и yandex money заменены на yoomoney
 ### NEXT_VERSION_DESCRIPTION_END
 ## [5.2.2]() (30-11-2020)
 

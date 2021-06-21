@@ -1,4 +1,4 @@
-# yamoney-git-expired-branch-plugin
+# yoomoney-git-expired-branch-plugin
 
 Плагин для отслеживания брошенных бранчей в репозитории.
 
@@ -13,11 +13,11 @@ buildscript {
         maven { url 'http://nexus.yamoney.ru/repository/jcenter.bintray.com/' }
     }
     dependencies {
-        classpath 'ru.yandex.money.gradle.plugins:yamoney-git-expired-branch-plugin:3.+'
+        classpath 'ru.yoomoney.gradle.plugins:yoomoney-git-expired-branch-plugin:3.+'
     }
 }
 
-apply plugin: 'yamoney-git-expired-branch-plugin'
+apply plugin: 'yoomoney-git-expired-branch-plugin'
 
 ```
 
