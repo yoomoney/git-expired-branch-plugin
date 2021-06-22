@@ -2,12 +2,12 @@ package ru.yoomoney.gradle.plugins.library.git.expired.branch;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitSettings;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.EmailConnectionExtension;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.EmailConnectionSettings;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.GitConnectionExtension;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.GitExpiredBranchExtension;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.GitExpiredBranchSettings;
-import ru.yandex.money.tools.git.GitSettings;
 
 /**
  * Плагин для работы с брошенными ветками git

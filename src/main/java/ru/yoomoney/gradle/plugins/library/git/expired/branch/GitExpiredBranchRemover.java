@@ -4,10 +4,10 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.lib.Ref;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitSettings;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.helper.GitManager;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.notification.MailSender;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.GitExpiredBranchSettings;
-import ru.yandex.money.tools.git.GitSettings;
 
 import java.io.File;
 import java.io.IOException;

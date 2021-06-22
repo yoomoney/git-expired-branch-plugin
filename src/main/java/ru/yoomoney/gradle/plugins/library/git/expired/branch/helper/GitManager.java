@@ -18,10 +18,10 @@ import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.treewalk.CanonicalTreeParser;
 import org.gradle.api.logging.Logger;
 import org.gradle.api.logging.Logging;
-import ru.yandex.money.tools.git.GitRepo;
-import ru.yandex.money.tools.git.GitRepoFactory;
-import ru.yandex.money.tools.git.GitSettings;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.BitbucketRepoInfo;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitRepo;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitRepoFactory;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitSettings;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

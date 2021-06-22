@@ -11,13 +11,13 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.URIish;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitRepo;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitRepoFactory;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitSettings;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.helper.GitManager;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.notification.MailSender;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.GitExpiredBranchSettings;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.GitExpiredBranchExtension;
-import ru.yandex.money.tools.git.GitRepo;
-import ru.yandex.money.tools.git.GitRepoFactory;
-import ru.yandex.money.tools.git.GitSettings;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +39,6 @@ import static org.testng.Assert.assertEquals;
 public class GitExpiredBranchRemoverTest {
 
     private final MailSender mailSenderMock = mock(MailSender.class);
-
 
     private final GitSettings gitSettings = GitSettings.builder()
             .withUsername("username")

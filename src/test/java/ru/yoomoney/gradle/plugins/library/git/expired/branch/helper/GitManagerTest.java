@@ -8,7 +8,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.URIish;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ru.yandex.money.tools.git.GitSettings;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitSettings;
 
 
 import java.io.File;

@@ -5,10 +5,10 @@ import org.gradle.api.DefaultTask;
 import org.gradle.api.logging.Logger;
 import org.gradle.api.logging.Logging;
 import org.gradle.api.tasks.TaskAction;
+import ru.yoomoney.gradle.plugins.library.git.expired.branch.git.GitSettings;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.notification.MailSender;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.EmailConnectionSettings;
 import ru.yoomoney.gradle.plugins.library.git.expired.branch.settings.GitExpiredBranchSettings;
-import ru.yandex.money.tools.git.GitSettings;
 
 import java.io.File;
 import java.util.List;
