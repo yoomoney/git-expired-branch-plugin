@@ -1,7 +1,8 @@
 ### NEXT_VERSION_TYPE=MAJOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
 * **breaking changes** yamoney и yandex money заменены на yoomoney
-* удалена зависимость от yamoney-git-client
+* удалена зависимость на yamoney-git-client
+* удалена зависимость на yamoney-test-utils
 ### NEXT_VERSION_DESCRIPTION_END
 ## [5.2.2]() (30-11-2020)
 
