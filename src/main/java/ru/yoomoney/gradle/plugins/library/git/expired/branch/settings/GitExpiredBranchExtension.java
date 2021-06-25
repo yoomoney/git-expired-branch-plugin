@@ -20,25 +20,25 @@ public class GitExpiredBranchExtension {
      * Репозиторий для архивации диффов
      */
     @Nullable
-    public String gitArchiveRepository = "ssh://git@bitbucket.yamoney.ru/backend-archive/branches-archive2.git";
+    public String gitArchiveRepository = null;
 
     /**
      * Адрес почты от которого придет уведомление об устареших ветках
      */
     @Nullable
-    public String notifierEmail = "bitbucket-stale-branch-notifier@yoomoney.ru";
+    public String notifierEmail = null;
 
     /**
      * Адрес почты от которого придет уведомление об удалении устаревших веток
      */
     @Nullable
-    public String removerEmail = "bitbucket-stale-branch-delete@yoomoney.ru";
+    public String removerEmail = null;
 
     /**
      * Адрес почты на который придет письмо при неуспехе отправки уведомлений
      */
     @Nullable
-    public String adminEmail = "SvcReleaserBackend@yoomoney.ru";
+    public String adminEmail = null;
 
     /**
      * Количество дней по истечении которых начинаем пинговать авторов веток,

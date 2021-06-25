@@ -27,8 +27,8 @@ import static org.testng.Assert.fail;
 public class GitRepoTest {
 
     private static final GitSettings settings = GitSettings.builder()
-            .withEmail("SvcReleaserBackend@yamoney.ru")
-            .withUsername("SvcReleaserBackend")
+            .withEmail("releaser@yoomoney.ru")
+            .withUsername("Releaser")
             .build();
 
     @Test

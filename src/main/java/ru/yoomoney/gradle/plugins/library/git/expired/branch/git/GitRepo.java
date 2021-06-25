@@ -149,7 +149,7 @@ public class GitRepo implements AutoCloseable {
      * см. https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
      * см. https://git-scm.com/docs/git-remote
      *
-     * @return ссылку вида ssh://git@bitbucket.yamoney.ru/backend-gradle-plugins/jira-release-plugin.git
+     * @return ссылку вида git@github.com:yoomoney-gradle-plugins/git-expired-branch-plugin.git
      */
     public String getRemoteOriginUrl() {
         return git.getRepository().getConfig().getString("remote", "origin", "url");

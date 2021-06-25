@@ -39,8 +39,8 @@ public class GitManagerTest {
         projectDir = Files.createTempDirectory("git_manager_test");
         git = initProjectRepoWithMasterBranch(projectDir);
         gitManager = new GitManager(projectDir.toFile(), GitSettings.builder()
-                .withEmail("SvcReleaserBackend@yoomoney.ru")
-                .withUsername("SvcReleaserBackend")
+                .withEmail("releaser@yoomoney.ru")
+                .withUsername("Releaser")
                 .build());
     }
 

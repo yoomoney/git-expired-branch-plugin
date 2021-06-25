@@ -1,6 +1,7 @@
 ### NEXT_VERSION_TYPE=MAJOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
 * **breaking changes** yamoney и yandex money заменены на yoomoney
+* **breaking changes** удалена дефолтная ветка и почты
 * удалена зависимость на yamoney-git-client
 * удалена зависимость на yamoney-test-utils
 ### NEXT_VERSION_DESCRIPTION_END
