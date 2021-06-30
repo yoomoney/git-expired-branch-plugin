@@ -35,15 +35,13 @@ class GitExpiredBranchSpec {
 
                 buildscript {
                     repositories {
-                        maven { url 'http://nexus.yamoney.ru/content/repositories/thirdparty/' }
-                        maven { url 'http://nexus.yamoney.ru/content/repositories/central/' }
-                        maven { url 'http://nexus.yamoney.ru/content/repositories/releases/' }
-                        maven { url 'http://nexus.yamoney.ru/content/repositories/public/' }
+                        mavenCentral()
+                        maven { url 'https://plugins.gradle.org/m2/' }
                     }
                 }
                 plugins {
                     id 'java'
-                    id 'yoomoney-git-expired-branch-plugin'
+                    id 'ru.yoomoney.gradle.plugins.git-expired-branch-plugin'
                 }
         """
     }
@@ -90,7 +88,7 @@ class GitExpiredBranchSpec {
                 .withPluginClasspath()
                 .withDebug(true)
                 .build()
-        assertThat(result.output, containsString("Deleting branches \n" +
-                "Notifying commiters about deletion"))
+        assertThat(result.output, containsString("Deleting branches"))
+        assertThat(result.output, containsString("Notifying commiters about deletion"))
     }
 }

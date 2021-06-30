@@ -1,31 +1,19 @@
 buildscript {
     apply from: 'project.gradle', to: buildscript
 }
-apply plugin: 'yamoney-gradle-project-plugin'
 
-pluginId = 'yoomoney-git-expired-branch-plugin'
+apply plugin: "ru.yoomoney.gradle.plugins.gradle-project-plugin"
+
+apply from: 'dependencies.gradle'
+
+artifactId = 'git-expired-branch-plugin'
+
 gradlePlugin {
     plugins {
         gitExpiredBranchPlugin {
-            id = pluginId
+            id = 'ru.yoomoney.gradle.plugins.git-expired-branch-plugin'
             implementationClass = "ru.yoomoney.gradle.plugins.library.git.expired.branch.GitExpiredBranchPlugin"
+            displayName = 'Git Expired Branch Plugin'
         }
-    }
-}
-
-
-dependencies {
-    api localGroovy(),
-            'com.sun.mail:javax.mail:1.6.2',
-            'commons-io:commons-io:2.6',
-            'org.apache.commons:commons-lang3:3.9',
-            'org.eclipse.jgit:org.eclipse.jgit:5.4.0.201906121030-r'
-
-    testImplementation gradleTestKit(),
-            'org.testng:testng:6.14.3',
-            'org.mockito:mockito-core:3.11.2'
-
-    testImplementation('org.spockframework:spock-core:1.3-groovy-2.5') {
-        exclude module: 'groovy-all'
     }
 }
