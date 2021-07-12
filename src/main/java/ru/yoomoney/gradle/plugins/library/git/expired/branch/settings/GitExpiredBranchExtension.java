@@ -20,25 +20,25 @@ public class GitExpiredBranchExtension {
      * Репозиторий для архивации диффов
      */
     @Nullable
-    public String gitArchiveRepository = null;
+    public String gitArchiveRepository;
 
     /**
      * Адрес почты от которого придет уведомление об устареших ветках
      */
     @Nullable
-    public String notifierEmail = null;
+    public String notifierEmail;
 
     /**
      * Адрес почты от которого придет уведомление об удалении устаревших веток
      */
     @Nullable
-    public String removerEmail = null;
+    public String removerEmail;
 
     /**
      * Адрес почты на который придет письмо при неуспехе отправки уведомлений
      */
     @Nullable
-    public String adminEmail = null;
+    public String adminEmail;
 
     /**
      * Количество дней по истечении которых начинаем пинговать авторов веток,
