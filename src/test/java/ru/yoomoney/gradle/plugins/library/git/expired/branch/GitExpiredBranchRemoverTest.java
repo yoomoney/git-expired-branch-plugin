@@ -115,6 +115,7 @@ public class GitExpiredBranchRemoverTest {
                 .call();
 
         GitExpiredBranchExtension expiredBranch = new GitExpiredBranchExtension();
+        expiredBranch.removerEmail = "bitbucket-stale-branch-delete@yoomoney.ru";
 
         expiredBranchSettings = new GitExpiredBranchSettings.Builder()
                 .withRepoDir(new File(originRepoFolder.toString()))
