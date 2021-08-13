@@ -61,7 +61,6 @@ public class GitExpiredBranchExtension {
     public Collection<String> ignoreBranchesPatterns = Arrays.asList(new String[]{
         "^refs/remotes/origin/dev$",
         "^refs/remotes/origin/master$",
-        "^refs/remotes/origin/HEAD$",
-        "^refs/remotes/origin/release/.*$"
+        "^refs/remotes/origin/HEAD$"
     });
 }

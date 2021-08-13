@@ -67,29 +67,6 @@ public class GitRepoTest {
     }
 
     @Test
-    public void should_find_all_tags() throws GitAPIException, IOException, URISyntaxException {
-        File tempDir = Files.createTempDirectory(getClass().getSimpleName()).toFile();
-        GitRepoFactory gitRepoFactory = new GitRepoFactory(settings);
-        try (GitRepo gitRepo = gitRepoFactory.createGitRepo(Git.init().setDirectory(tempDir))) {
-
-            File buildFile = new File(tempDir.getPath(), "build.gradle");
-            List<String> lines = Arrays.asList("The first line", "The second line");
-
-            Files.write(Paths.get(buildFile.getAbsolutePath()), lines, Charset.forName("UTF-8"));
-            gitRepo.add().addFilepattern("build.gradle")
-                    .call();
-
-            gitRepo.commit().setMessage("build.gradle commit").call();
-
-            gitRepo.tag().setName("2.0.0").call();
-            gitRepo.tag().setName("3.0.0").call();
-
-            assertEquals(gitRepo.listTags().get(0).getName(), "refs/tags/2.0.0");
-            assertEquals(gitRepo.listTags().get(1).getName(), "refs/tags/3.0.0");
-        }
-    }
-
-    @Test
     public void should_set_author_when_merge() throws GitAPIException, IOException, URISyntaxException {
         File tempDir = Files.createTempDirectory(getClass().getSimpleName()).toFile();
         GitRepoFactory gitRepoFactory = new GitRepoFactory(settings);

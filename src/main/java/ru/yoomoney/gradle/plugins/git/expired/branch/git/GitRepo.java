@@ -94,33 +94,6 @@ public class GitRepo implements AutoCloseable {
     }
 
     /**
-     * Прерывает merge в текущую ветку
-     */
-    public void abortMerge() {
-        try {
-            //очищаем файлы состояния слияния, а затем делаем hard reset
-            git.getRepository().writeMergeCommitMsg(null);
-            git.getRepository().writeMergeHeads(null);
-            Git.wrap(git.getRepository()).reset().setMode(ResetCommand.ResetType.HARD).call();
-        } catch (IOException | GitAPIException ex) {
-            throw new RuntimeException("Can't abort merge", ex);
-        }
-    }
-
-    /**
-     * Определяет имя текущей ветки
-     *
-     * @return имя текущей ветки в формате "release/3.234", "master"
-     */
-    public String getCurrentBranchName() {
-        try {
-            return git.getRepository().getBranch();
-        } catch (IOException ex) {
-            throw new RuntimeException("Can't get current branch", ex);
-        }
-    }
-
-    /**
      * Получение коммита, на который указывает head
      *
      * @return ObjectId коммита, на который указывает head
@@ -131,28 +104,6 @@ public class GitRepo implements AutoCloseable {
         } catch (IOException e) {
             throw new RuntimeException("Can't get head commit", e);
         }
-    }
-
-    /**
-     * Получение списка существующих тегов
-     */
-    public List<Ref> listTags() {
-        try {
-            return git.getRepository().getRefDatabase().getRefsByPrefix(R_TAGS);
-        } catch (IOException e) {
-            throw new RuntimeException("Can't get tags", e);
-        }
-    }
-
-    /**
-     * Получение git remote origin url
-     * см. https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
-     * см. https://git-scm.com/docs/git-remote
-     *
-     * @return ссылку вида git@github.com:yoomoney-gradle-plugins/git-expired-branch-plugin.git
-     */
-    public String getRemoteOriginUrl() {
-        return git.getRepository().getConfig().getString("remote", "origin", "url");
     }
 
     /**
@@ -181,52 +132,10 @@ public class GitRepo implements AutoCloseable {
     }
 
     /**
-     * Прокси для вызова {@link TagCommand}
-     */
-    public TagCommand tag() {
-        return git.tag().setTagger(new PersonIdent(settings.getUsername(), settings.getEmail()));
-    }
-
-    /**
      * Прокси для вызова {@link RemoteAddCommand}
      */
     public RemoteAddCommand remoteAdd() {
         return git.remoteAdd();
-    }
-
-    /**
-     * Прокси для вызова {@link RemoteSetUrlCommand}
-     */
-    public RemoteSetUrlCommand remoteSetUrl() {
-        return git.remoteSetUrl();
-    }
-
-    /**
-     * Прокси для вызова {@link RemoteRemoveCommand}
-     */
-    public RemoteRemoveCommand remoteRemove() {
-        return git.remoteRemove();
-    }
-
-    /**
-     * Прокси для вызова {@link RemoteListCommand}
-     */
-    public RemoteListCommand remoteList() {
-        return git.remoteList();
-    }
-
-    /**
-     * Прокси для вызова {@link DescribeCommand}
-     */
-    public DescribeCommand describe() {
-        return git.describe();
-    }
-
-    /**
-     * Прокси для вызова {@link RenameBranchCommand}
-     */
-    public RenameBranchCommand branchRename() {
-        return git.branchRename();
     }
 
     /**
@@ -282,16 +191,6 @@ public class GitRepo implements AutoCloseable {
 
     /**
      * Прокси для вызова {@link MergeCommand}
-     *
-     * @deprecated используйте {@link GitRepo#merge(Consumer)}, для правильного выставления автора коммита
-     */
-    @Deprecated
-    public MergeCommand merge() {
-        return git.merge();
-    }
-
-    /**
-     * Прокси для вызова {@link MergeCommand}
      */
     public MergeResult merge(Consumer<MergeCommand> command) throws GitAPIException {
         MergeCommand merge = git.merge();
@@ -313,30 +212,6 @@ public class GitRepo implements AutoCloseable {
         }
         return result;
     }
-
-    /**
-     * Прокси для вызова {@link FetchCommand}
-     *
-     * @deprecated используйте {@link #fetch(Consumer)}
-     */
-    @Deprecated
-    public FetchCommand fetch() {
-        return git.fetch();
-    }
-
-    /**
-     * Прокси для вызова {@link FetchCommand} с конфигурацией траспорта
-     *
-     * @param command команда, для которой нужна конфигурация
-     * @return результат выполенния
-     */
-    public FetchResult fetch(Consumer<FetchCommand> command) throws GitAPIException {
-        FetchCommand fetch = git.fetch();
-        configureTransport(fetch, settings);
-        command.accept(fetch);
-        return fetch.call();
-    }
-
 
     @Override
     public void close() {

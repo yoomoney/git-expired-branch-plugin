@@ -63,40 +63,4 @@ public class GitRepoFactory {
             throw new RuntimeException("cannot createGitRepo repository", exc);
         }
     }
-
-    /**
-     * Прокси для вызова {@link CloneCommand}
-     *
-     * @param command  команда для выполнения
-     * @return объект для работы с git-репозиторием
-     */
-    public GitRepo clone(@Nonnull CloneCommand command) {
-        requireNonNull(command, "command");
-        try {
-            GitRepo.configureTransport(command, settings);
-            return new GitRepo(command.call(), settings);
-        } catch (GitAPIException exc) {
-            throw new RuntimeException("git clone failed", exc);
-        }
-    }
-
-    /**
-     * Склонировать репозиторий.
-     *
-     * @param uri        адрес репозитория
-     * @param repoDir    директория для клонирования
-     * @param branchName имя бранча
-     * @return объект для работы с git-репозиторием
-     */
-    public GitRepo clone(@Nonnull URI uri,
-                         @Nonnull File repoDir,
-                         @Nonnull String branchName) {
-        log.info("Git clone: uri={}, branch={}", uri.toASCIIString(), branchName);
-        CloneCommand cloneCommand = Git.cloneRepository()
-                .setBranch(branchName)
-                .setURI(uri.toASCIIString())
-                .setDirectory(repoDir)
-                .setBranchesToClone(Collections.singletonList("refs/heads/" + branchName));
-        return clone(cloneCommand);
-    }
 }

@@ -44,12 +44,11 @@ expiredBranchSettings {
     staleDaysToNotify = 30
     // Количество дней по истечении которых ветка удаляется, а дифф переносится в архивный репозиторий. По-умолчанию - 60 дней
     staleDaysToDelete = 60
-    // Список паттернов веток, которые не нужно удалять. По-умолчанию не удаляются master, dev, release/*
+    // Список паттернов веток, которые не нужно удалять. По-умолчанию не удаляются master, dev
     ignoreBranchesPatterns = [
         '^refs/remotes/origin/dev$',
         '^refs/remotes/origin/master$',
-        '^refs/remotes/origin/HEAD$',
-        '^refs/remotes/origin/release/.*$'
+        '^refs/remotes/origin/HEAD$'
     ]                                                                 
 }
 
