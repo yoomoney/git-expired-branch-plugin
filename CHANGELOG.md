@@ -4,6 +4,7 @@
 * **breaking changes** удалена дефолтная ветка и почты
 * удалена зависимость на yamoney-git-client
 * удалена зависимость на yamoney-test-utils
+* переименован пакет `ru.yandex.money.gradle.plugins.library.git.expired.branch` -> `ru.yandex.money.gradle.plugins.git.expired.branch`
 ### NEXT_VERSION_DESCRIPTION_END
 ## [5.2.2]() (30-11-2020)
 

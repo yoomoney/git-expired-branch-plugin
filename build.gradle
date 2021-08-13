@@ -12,7 +12,7 @@ gradlePlugin {
     plugins {
         gitExpiredBranchPlugin {
             id = 'ru.yoomoney.gradle.plugins.git-expired-branch-plugin'
-            implementationClass = "ru.yoomoney.gradle.plugins.library.git.expired.branch.GitExpiredBranchPlugin"
+            implementationClass = "ru.yoomoney.gradle.plugins.git.expired.branch.GitExpiredBranchPlugin"
             displayName = 'Git Expired Branch Plugin'
         }
     }
