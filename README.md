@@ -1,4 +1,4 @@
-# yamoney-git-expired-branch-plugin
+# yoomoney-git-expired-branch-plugin
 
 Плагин для отслеживания брошенных бранчей в репозитории.
 
@@ -7,17 +7,14 @@
 ```groovy
 buildscript {
     repositories {
-        maven { url 'http://nexus.yamoney.ru/repository/thirdparty/' }
-        maven { url 'http://nexus.yamoney.ru/repository/central/' }
-        maven { url 'http://nexus.yamoney.ru/repository/releases/' }
-        maven { url 'http://nexus.yamoney.ru/repository/jcenter.bintray.com/' }
+        jcenter()
     }
     dependencies {
-        classpath 'ru.yandex.money.gradle.plugins:yamoney-git-expired-branch-plugin:3.+'
+        classpath 'ru.yoomoney.gradle.plugins:git-expired-branch-plugin:6.+'
     }
 }
 
-apply plugin: 'yamoney-git-expired-branch-plugin'
+apply plugin: 'ru.yoomoney.gradle.plugins.git-expired-branch-plugin'
 
 ```
 
@@ -27,40 +24,55 @@ apply plugin: 'yamoney-git-expired-branch-plugin'
 
 * **notifyAboutGitExpiredBranches** - высылает авторам уведомление о бранчах, в которых давно не было активности
 * **removeExpiredGitBranches** - переносит бранчи, в которых давно не было активности, в специальный репозиторий, 
- по-умолчанию это - `ssh://git@bitbucket.yamoney.ru/backend-archive/branches-archive2.git`
+ указанные в настройках
 
 
-Пример настройки плагина:
+## Конфигурация плагина
 ```groovy
 expiredBranchSettings {
-    repoDir = new File('.').absoluteFile                                                   // Не обязательный параметр, по-умолчанию - текущая рабочая директория gradle
-    gitArchiveRepository = 'ssh://git@bitbucket-public.yamoney.ru/fa/branches-archive.git' // Не обязательный параметр, по-умолчанию - `ssh://git@bitbucket.yamoney.ru/backend-archive/branches-archive2.git`
-    notifierEmail = 'bitbucket-stale-branch-notifier@yoomoney.ru'                           // Не обязательный параметр, по-умолчанию `bitbucket-stale-branch-notifier@yoomoney.ru`
-    removerEmail = 'bitbucket-stale-branch-delete@yoomoney.ru'                              // Не обязательный параметр, по-умолчанию `bitbucket-stale-branch-delete@yoomoney.ru`
-    adminEmail = 'SvcReleaserBackend@yoomoney.ru'                                           // Не обязательный параметр, по-умолчанию `SvcReleaserBackend@yoomoney.ru`
-    staleDaysToNotify = 30                                                                 // Не обязательный параметр, по-умолчанию 30
-    staleDaysToDelete = 60                                                                 // Не обязательный параметр, по-умолчанию 60
-    // Не обязательный параметр, по-умолчанию не удаляются master, dev, release/*
+    // Локальная папка с репозиторием, по-умолчанию - текущая рабочая директория gradle
+    repoDir = new File('.').absoluteFile
+    // Репозиторий для архивации диффов
+    gitArchiveRepository = 'ssh://git@git_domain/branches-archive.git'
+    // Адрес почты от которого придет уведомление об устаревших ветках
+    notifierEmail = 'expiredBranchNotifier@test.ru'                 
+    // Адрес почты от которого придет уведомление об удалении устаревших веток
+    removerEmail = 'expiredBranchDelete@test.ru'
+    // Адрес почты на который придет письмо при неуспехе отправки уведомлений
+    adminEmail = 'admin@test.ru'
+    // Количество дней по истечении которых начинаем пинговать авторов веток, если в ветках не было коммитов. По-умолчанию - 30 дней
+    staleDaysToNotify = 30
+    // Количество дней по истечении которых ветка удаляется, а дифф переносится в архивный репозиторий. По-умолчанию - 60 дней
+    staleDaysToDelete = 60
+    // Список паттернов веток, которые не нужно удалять. По-умолчанию не удаляются master, dev
     ignoreBranchesPatterns = [
         '^refs/remotes/origin/dev$',
         '^refs/remotes/origin/master$',
-        '^refs/remotes/origin/HEAD$',
-        '^refs/remotes/origin/release/.*$',
-        '^refs/remotes/origin/support/.*$'
+        '^refs/remotes/origin/HEAD$'
     ]                                                                 
 }
 
+// Настройки подключения к Git
 gitForGitExpiredBranches {
-   email = 'SvcReleaserBackend@yoomoney.ru'     // Обязательный параметр
-   username = 'SvcReleaserBackend'             // Обязательный параметр
-   passphraseSshKey = null                     // Парольная фраза для ssh ключа. Может быть не задана
-   pathToGitPrivateSshKey = null               // Путь до приватного ssh ключа
+    // Email пользователя, от имени которого будет производиться коммит в гит. Обязательная настройка.
+    email = 'gitArchiver@test.ru'
+    // Пользователь, от имени которого будет производиться коммит в гит. Обязательная настройка.
+    username = 'GitArchiver'
+    //Passphrase для приватного ssh ключа. По умолчанию не задана, имеет смысл совместно с pathToGitPrivateSshKey
+    passphraseSshKey = null
+    // Путь до приватного ssh ключа для доступа в git
+    pathToGitPrivateSshKey = null
 }
 
+// Настройки подключения к Email шлюзу
 emailForGitExpiredBranches {
-   emailHost = 'mail.yoomoney.ru'               // Обязательный параметр
-   emailPort = 25                              // Обязательный параметр
-   emailAuthUser = 'testUser'                  // Обязательный параметр
-   emailAuthPassword = 'testPassword'          // Обязательный параметр
+    // Хост шлюза для отправки email. Обязательный параметр
+    emailHost = 'mail.test.ru'
+    // Порт шлюза для отправки email.
+    emailPort = 25
+    // Пользователь для авторзации в email шлюзе. Может быть установлено через переменную окружения "EMAIL_USER". Обязательный параметр.
+    emailAuthUser = 'testUser'
+    // Пароль для авторзации в email шлюзе. Может быть установлено через переменную окружения "EMAIL_PASSWORD". Обязательный параметр
+    emailAuthPassword = 'testPassword'
 }
 ```
