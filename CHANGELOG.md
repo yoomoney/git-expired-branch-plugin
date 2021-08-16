@@ -1,17 +1,17 @@
-### NEXT_VERSION_TYPE=MAJOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [6.0.0](https://github.com/yoomoney-gradle-plugins/git-expired-branch-plugin/pull/1) (16-08-2021)
+
 * **breaking changes** yamoney и yandex money заменены на yoomoney
 * **breaking changes** удалена некоторые настройки по умолчанию. При обновлении версии необходимо установить следующие свойства:
-  - expiredBranchSettings.gitArchiveRepository
-  - expiredBranchSettings.notifierEmail
-  - expiredBranchSettings.removerEmail
-  - expiredBranchSettings.adminEmail
+- expiredBranchSettings.gitArchiveRepository
+- expiredBranchSettings.notifierEmail
+- expiredBranchSettings.removerEmail
+- expiredBranchSettings.adminEmail
 * **breaking change** в настройке expiredBranchSettings.ignoreBranchesPatterns удалено `^refs/remotes/origin/release/.*$` из значений по умолчанию
 * удалена зависимость на yamoney-git-client
 * удалена зависимость на yamoney-test-utils
 * переименован пакет `ru.yandex.money.gradle.plugins.library.git.expired.branch` -> `ru.yandex.money.gradle.plugins.git.expired.branch`
 * сборка переведена на travis
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [5.2.2]() (30-11-2020)
 
 * Обновлена версия kotlin 1.3.71 -> 1.3.50
