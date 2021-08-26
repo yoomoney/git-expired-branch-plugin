@@ -1,7 +1,8 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MINOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* Переезд организации yoomoney-gradle-plugins -> yoomoney
 ### NEXT_VERSION_DESCRIPTION_END
-## [6.0.0](https://github.com/yoomoney-gradle-plugins/git-expired-branch-plugin/pull/1) (16-08-2021)
+## [6.0.0](https://github.com/yoomoney/git-expired-branch-plugin/pull/1) (16-08-2021)
 
 * **breaking changes** yamoney и yandex money заменены на yoomoney
 * **breaking changes** удалена некоторые настройки по умолчанию. При обновлении версии необходимо установить следующие свойства:
