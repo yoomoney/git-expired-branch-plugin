@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=MINOR
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [6.1.0](https://github.com/yoomoney/git-expired-branch-plugin/pull/2) (26-08-2021)
+
 * Переезд организации yoomoney-gradle-plugins -> yoomoney
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [6.0.0](https://github.com/yoomoney/git-expired-branch-plugin/pull/1) (16-08-2021)
 
 * **breaking changes** yamoney и yandex money заменены на yoomoney
