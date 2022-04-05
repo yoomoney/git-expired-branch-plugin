@@ -10,11 +10,7 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.testng.Assert.assertEquals;
