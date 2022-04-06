@@ -3,10 +3,10 @@ package ru.yoomoney.gradle.plugins.git.expired.branch
 import org.eclipse.jgit.api.Git
 import org.gradle.internal.impldep.org.junit.rules.TemporaryFolder
 import org.gradle.testkit.runner.GradleRunner
+import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.StringContains.containsString
-import org.junit.Assert.assertThat
-import org.junit.Before
-import org.junit.Test
+import org.testng.annotations.BeforeMethod
+import org.testng.annotations.Test
 import java.io.File
 
 /**
@@ -22,7 +22,7 @@ class GitExpiredBranchSpec {
     private lateinit var setupBuildFile: String
     private lateinit var buildFile: File
 
-    @Before
+    @BeforeMethod
     fun setup() {
         testProjectDir.create()
         buildFile = testProjectDir.newFile("build.gradle")
