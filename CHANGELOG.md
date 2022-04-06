@@ -1,3 +1,6 @@
+### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_DESCRIPTION_BEGIN
+### NEXT_VERSION_DESCRIPTION_END
 ## [7.0.0](https://github.com/yoomoney/git-expired-branch-plugin/pull/3) (06-04-2022)
 
 * **breaking changes** Сборка плагина для gradle `7.4.1`;
