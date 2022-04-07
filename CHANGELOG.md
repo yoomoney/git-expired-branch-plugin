@@ -1,7 +1,7 @@
-### NEXT_VERSION_TYPE=PATCH
-### NEXT_VERSION_DESCRIPTION_BEGIN
+## [7.0.1](https://github.com/yoomoney/git-expired-branch-plugin/pull/4) (07-04-2022)
+
 Перевыпуск релиза из-за проблем с синхронизацией maven-central
-### NEXT_VERSION_DESCRIPTION_END
+
 ## [7.0.0](https://github.com/yoomoney/git-expired-branch-plugin/pull/3) (06-04-2022)
 
 * **breaking changes** Сборка плагина для gradle `7.4.1`;
